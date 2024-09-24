@@ -46,7 +46,6 @@
 .book-button:hover {
     background-color: #005bb5; /* Darker shade on hover */
 }
-
 /* Modal styles */
 .modal {
     display: none;
@@ -69,21 +68,25 @@
     width: 80%;
     max-width: 500px;
     border-radius: 8px;
+    position: relative; /* Relative position to contain absolute children */
 }
 
 .close {
     color: #aaa;
-    float: right;
-    font-size: 28px;
+    font-size: 24px; /* Increased size for better visibility */
     font-weight: bold;
+    cursor: pointer;
+    position: absolute; /* Absolute position within modal */
+    top: 15px; /* Top positioning */
+    right: 20px; /* Right positioning */
 }
 
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
 }
+
 
 .form-group {
     margin-bottom: 15px;
