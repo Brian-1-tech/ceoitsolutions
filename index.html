@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO IT SOLUTIONS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Slideshow CSS */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden; /* Hide overflow for better presentation */
+        }
+        .mySlides {
+            display: none;
+        }
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .prev, .next, .dot {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 3px;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .dots-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>CEO IT SOLUTIONS</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="service.html">Services</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="service1.jpeg" style="width:100%">
+                    <div class="text">Graphics Design</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="service2.jpeg" style="width:100%">
+                    <div class="text">Website Development and Maintenance</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="service3.jpg" style="width:100%">
+                    <div class="text">ICT Support Services</div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <div class="dots-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+      
+        <footer>
+            <p>&copy; 2024 CEO IT SOLUTIONS. All rights reserved.</p>
+            <div class="contact-info">
+                <p>Contact Us:</p>
+                <p>Email: brianokoth974@gmail.com</p>
+                <p>Phone: +254 720 707 165</p>
+                <div class="socials">
+                    <a href="https://facebook.com">Facebook</a> | 
+                    <a href="https://twitter.com">Twitter</a> | 
+                    <a href="https://linkedin.com">LinkedIn</a>
+                    <a class="whatsapp-button" href="https://wa.me/254720707165" target="_blank">Chat with us on WhatsApp</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        let slideIndex = 0;
+        let slideTimer;
+
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";  
+            dots[slideIndex - 1].className += " active";
+            slideTimer = setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        function plusSlides(n) {
+            clearTimeout(slideTimer); // Clear the timer
+            const slides = document.getElementsByClassName("mySlides");
+            slideIndex += n;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            if (slideIndex < 1) {slideIndex = slides.length}
+            showSlides();
+        }
+
+        function currentSlide(n) {
+            clearTimeout(slideTimer); // Clear the timer
+            slideIndex = n - 1; // Set the current slide
+            showSlides();
+        }
+
+        // Pause the slideshow on hover
+        const slideshowContainer = document.querySelector('.slideshow-container');
+        slideshowContainer.addEventListener('mouseenter', () => clearTimeout(slideTimer));
+        slideshowContainer.addEventListener('mouseleave', () => showSlides());
+    </script>
+
+</body>
+</html>
